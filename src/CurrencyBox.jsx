@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import ReactDropdown from "react-dropdown";
+
+
 
 export default function CurrencyBox() {
   //Declaring and initializing our States
@@ -31,8 +34,8 @@ export default function CurrencyBox() {
       wallet?.forEach(({ name, amount}) => {
         tempSum += (amount /rates[name]) * rates[defaultCurrency];
       });
-      const calculatedTotal = (tempSum/ rates[defaultCurrency]) * rates[defaultCurrency];
-      setSum(calculatedTotal);
+      const calculatedSum = (tempSum/ rates[defaultCurrency]) * rates[defaultCurrency];
+      setSum(calculatedSum);
 
     }
   }, [defaultCurrency]);
@@ -60,36 +63,46 @@ export default function CurrencyBox() {
       wallet?.forEach(({name, amount}) =>{
         tempSum += (amount / rates[name]) * rates[defaultCurrency];
       });
-      const calculatedTotal = (tempSum / rates[defaultCurrency]) * rates[defaultCurrency];
-      setSum(calculatedTotal);
+      const calculatedSum = (tempSum / rates[defaultCurrency]) * rates[defaultCurrency];
+      setSum(calculatedSum);
     }
   }
 
+  // Getting total default currency after deposit
+  
+  function handleConfirm(){
+    wallet.map((elmt) =>{
+      if (elmt.name === deposit){
+        elmt.amount += input;
+      }
+      return elmt;
+    });
+    setWallet([...wallet]);
+
+    if(rates !== undefined) {
+      let tempSum = 0;
+      
+      wallet?.forEach(({name, amount})=>{
+        tempSum +=(amount / rates[name])  * rates[defaultCurrency];
+      });
+      const calculatedSum = (tempSum / rates[defaultCurrency]) * rates[defaultCurrency];
+      setSum(calculatedSum);
+    }
+  }
+
+
   return (
     <div className="currency">
-      <p>Convert</p>
-      <input className="input" type="number" />
-      <select name="">
-        <option value="USD">USD</option>
-        <option value="EURO">EURO</option>
-        <option value="XAF">XAF</option>
-      </select>
-      <p>=</p>
-      <input className="input" type="number" />
-      <select name="">
-        <option value="USD">USD</option>
-        <option value="EURO">EURO</option>
-        <option value="XAF">XAF</option>
-      </select>
-      <li>
-        <input type="number" />
-        <select name="" id="">
-          <option value="USD">USD</option>
-          <option value="EURO">EURO</option>
-          <option value="XAF">XAF</option>
-        </select>
-        <button>Deposite</button>
-      </li>
+     <div className="converter"
+     onSubmit={(e)=>{
+      e.preventDefault();
+      handleConvert();
+     }}>
+      <h2>convert</h2>
+      <div className="input"></div>
+      
+      </div>   
+ 
     </div>
   );
 }
