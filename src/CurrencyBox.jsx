@@ -82,13 +82,13 @@ export default function CurrencyBox() {
     if(rates !== undefined) {
       let tempSum = 0;
       
-  //     wallet?.forEach(({name, amount})=>{
-  //       tempSum +=(amount / rates[name])  * rates[defaultCurrency];
-  //     });
-  //     const calculatedSum = (tempSum / rates[defaultCurrency]) * rates[defaultCurrency];
-  //     setSum(calculatedSum);
-  //   }
-  // }
+      wallet?.forEach(({name, amount})=>{
+        tempSum +=(amount / rates[name])  * rates[defaultCurrency];
+      });
+      const calculatedSum = (tempSum / rates[defaultCurrency]) * rates[defaultCurrency];
+      setSum(calculatedSum);
+    }
+  }
 
 
   return (
