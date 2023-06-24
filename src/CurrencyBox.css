@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+//converter
+.Currency {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 50vh;
+  width: 90%;
+}
+
+.converter {
+  border: 2px solid black;
+  padding: 20px;
+  margin: 15px;
+}
+
+// User Account
+
+.input {
+  border: 2px solid black;
+  padding: 20px;
+  margin: 15px;
+}
+
+// User Wallet
+
+.wallet{
+  border: 2px solid black;
+  padding: 20px;
+  margin: 15px;
+}

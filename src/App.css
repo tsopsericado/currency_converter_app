@@ -45,12 +45,12 @@ select {
   font-size:2rem;
 }
 
-.app{
+/* .app{
   display:flex;
   flex-wrap:wrap;
   justify-content:space-around;
   gap:100px;
-}  
+}   */
 
 // CurrencyBox.css styling
 
