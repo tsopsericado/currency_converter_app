@@ -29,12 +29,12 @@ h1{
   margin-buttom:.5rem;
 }
 
-.input{
+/* .input{
   border:1px solid #333;
   border-radius:.3em;
   padding:.25rem;
   width: 8em;
-}
+} */
 
 select {
   margin-left:.5rem;
@@ -52,7 +52,6 @@ select {
   gap:100px;
 }   */
 
-// CurrencyBox.css styling
 
 .currency {
   

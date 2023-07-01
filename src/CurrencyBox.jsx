@@ -90,7 +90,7 @@ export default function CurrencyBox() {
       setSum(calculatedSum);
     }
   }
-
+ if (options.lenght > 0) { 
   return (
     <div className="currency">
       <div
@@ -111,7 +111,7 @@ export default function CurrencyBox() {
           />
         </div>
         <div className="select-option">
-          <h4>From</h4>
+          <h4>From:</h4>
           <ReactDropdown
             className="dropdown"
             options={options}
@@ -121,11 +121,11 @@ export default function CurrencyBox() {
               setFrom(e.value);
             }}
           />
-          <h1>To</h1>
+          <h4>To:</h4>
           <ReactDropdown
             className="dropdown"
             options={options}
-            value={from.toUpperCase()}
+            value={to.toUpperCase()}
             placeholder="to"
             onChange={(e) => {
               setTo(e.value);
@@ -136,7 +136,7 @@ export default function CurrencyBox() {
       </div>
 
       <div
-        className="deposit"
+        className="converter"
         onSubmit={(e) => {
           e.preventDefault();
           handleConfirm();
@@ -165,7 +165,7 @@ export default function CurrencyBox() {
         </div>
         <button type="submit">Confirm</button>
       </div>
-      <div className="wallet">
+      <div className="converter">
         <h2>User's Wallet</h2>
         <div className="select">
           <h3>Default Currency:</h3>
@@ -189,4 +189,5 @@ export default function CurrencyBox() {
       </div>
     </div>
   );
+}
 }

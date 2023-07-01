@@ -20,16 +20,43 @@
 
 // User Account
 
-.input {
+.deposit {
+  border: 3px solid black;
+  padding: 20px;
+  margin: 15px;
+  background: blue;
+}
+
+// User Wallet
+
+.wallet {
   border: 2px solid black;
   padding: 20px;
   margin: 15px;
 }
 
-// User Wallet
+.select-option {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px;
+}
 
-.wallet{
-  border: 2px solid black;
-  padding: 20px;
-  margin: 15px;
+.dropdown {
+  background: white;
+  padding: 1px 10px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+.select-options {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px;
+}
+
+.dropdowns {
+  background: white;
+  padding: 1px 10px;
 }
