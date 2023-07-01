@@ -1,193 +1,185 @@
-import React, { useEffect, useState } from "react";
-import ReactDropdown from "react-dropdown";
-import './CurrencyBox.css'
+import { useContext } from "react";
+import "./CurrencyBox.css";
+import { QuestionContext } from "../context/context";
+import logo2 from "..images/logo2.png";
 
-export default function CurrencyBox() {
-  //Declaring and initializing our States
-  const [input, setInput] = useState(0);
-  const [from, setFrom] = useState("USD");
-  const [to, setTo] = useState("EURO");
-  const [defaultCurrency, setDefaultCurrency] = useState("USD");
-  const [sum, setSum] = useState(0);
-  const [wallet, setWallet] = useState([
-    { name: "USD", amount: 100 },
-    { name: "EURO", amount: 500 },
-    { name: "XAF", amount: 10000 },
-  ]);
-  const [deposit, setDeposit] = useState("XAF");
-  const [options, SetOptions] = useState([]);
-  const [rates, setRates] = useState();
+function CurrencyBox() {
+  //Using the providers value
 
-  useEffect(() => {
-    fetch(
-      `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${defaultCurrency}.json`
-    )
-      .then((res) => res.json())
-      .then((res) => {
-        setRates(res[defaultCurrency]);
-        SetOptions([...Object.keys(res[defaultCurrency])]);
-      });
-    if (rates !== undefined) {
-      let tempSum = 0;
+  const {
+    message1,
+    setMessage1,
+    message2,
+    setMessage2,
+    message3,
+    setMessage3,
+    message4,
+    setMessage4,
+    total,
+    setTotal,
+  } = useContext(QuestionContext);
 
-      wallet?.forEach(({ name, amount }) => {
-        tempSum += (amount / rates[name]) * rates[defaultCurrency];
-      });
-      const calculatedSum =
-        (tempSum / rates[defaultCurrency]) * rates[defaultCurrency];
-      setSum(calculatedSum);
+  const handleSubmit = (event) => {
+    let ans1 = 0;
+    let ans2 = 0;
+    let ans3 = 0;
+    let ans4 = 0;
+
+    const data = new FormData(event.currentTarget);
+    const values = Object.fromEntries(data.entries());
+
+    if (values.currency === "USD") {
+      ans1 = message1 + +values.Amount;
+      setMessage1(ans1);
+    } else if (values.currency === "EUR") {
+      ans2 = message2 + +values.Amount;
+      setMessage2(ans2);
+    } else if (values.currency === "XAF") {
+      ans3 = message3 + +values.Amount;
+      setMessage3(ans3);
+    } else if (values.currency === "CNY") {
+      ans4 = message4 + +values.Amount;
+      setMessage4(ans4);
     }
-  }, [defaultCurrency]);
+    if (values.defaultCurrency === "USD") {
+      const operation1 = (
+        message2 * 0.93 +
+        message1 +
+        message3 * 0.0016 +
+        message4 * 0.15
+      ).toFixed(2);
+      const unit1 = `${operation1} USD`;
+      setTotal(unit1);
+    } else if (values.defaultCurrency === "EUR") {
+      const operation2 =( 
+        message1 * 0.93 + message2 + message3 * 0.01 + message4 * 0.14
+        ).toFixed(2);
+        const unit2 = `${operation2} EUR`;
+        setTotal(unit2);
+    } else if (values.defaultCurrency === 'XAF') {
+      const operation3 =
+      (
+        message1 * 611.64 +
+        message2 * 658.13 +
+        message3 +
+        message4 * 90.23
+      ).toFixed(2);
+      const unit3 = `${operation3} XAF`;
+      setTotal(unit3);
+    } else {
+      const operation4 = (
+        message1 * 6.78 +
+        message2 * 7.29 +
+        message3 * 0.01 +
+        message4
+      ).toFixed(2);
+      const unit4 = `${operation4} CNY`;
+      setTotal(unit4);
+    }
+    };
 
-  //Getting the total in default currency after conversion
 
-  function handleConvert() {
-    const rate = rates;
-    const results = (input / rate[from]) * rate[to];
-    const holder = wallet;
+  function doExchange(event) {
+    event.preventDefault();
 
-    holder.map((elmt) => {
-      if (elmt === from) {
-        elmt.amount -= input;
-      } else if (elmt.name === to) {
-        elmt.amount += results;
+    const change = new FormData(event.currentTarget);
+    const values2 = Object.fromEntries(change.entries());
+
+    if (values2.from === values2.too) {
+      alert('currency for exchange are similar');
+    }
+
+    if (values2.too === 'USD') {
+      if (values2.from === 'XAF' && values2.deposite < message3) {
+        const val1 = message3 - values2.deposite;
+        setMessage3(val1);
+        setMessage1(message1 + val1 * 0.01);
+      } else if (values2.from === 'EUR' && values2.deposite < message2) {
+        const val1 = message2 - values2.deposite;
+        setMessage2(val1);
+        setMessage1(message1 + val1 * 0.93);
+      } else if (values2.from === 'CNY' && values2.deposite < message4) {
+        const val1 = message4 - values2.deposite;
+        setMessage4(val1);
+        setMessage1(message1 + val1 * 0.14);
+      } else {
+        alert('Insufficient amount in wallet');
       }
-      return elmt;
-    });
-    setWallet([...holder]);
-
-    if (rates !== undefined) {
-      let tempSum = 0;
-
-      wallet?.forEach(({ name, amount }) => {
-        tempSum += (amount / rates[name]) * rates[defaultCurrency];
-      });
-      const calculatedSum =
-        (tempSum / rates[defaultCurrency]) * rates[defaultCurrency];
-      setSum(calculatedSum);
+    } else if (values2.too === 'EUR') {
+      if (values2.from === 'XAF' && values2.deposite < message3) {
+        const val1 = message3 - values2.deposite;
+        setMessage3(val1);
+        setMessage2(message2 + val1 * 0.01);
+      } else if (values2.from === 'USD' && values2.deposite < message1) {
+        const val1 = message1 - values2.deposite;
+        setMessage1(val1);
+        setMessage2(message2 + val1 * 0.93);
+      } else if (values2.from === 'CNY' && values2.deposite < message4) {
+        const val1 = message4 - values2.deposite;
+        setMessage4(val1);
+        setMessage2(message2 + val1 * 0.14);
+      } else {
+        alert('Insufficient amount in wallet');
+      }
+    } else if (values2.too === 'CNY') {
+      if (values2.from === 'XAF' && values2.deposite < message3) {
+        const val1 = message3 - values2.deposite;
+        setMessage3(val1);
+        setMessage4(message4 + val1 * 0.01);
+      } else if (values2.from === 'USD' && values2.deposite < message1) {
+        const val1 = message1 - values2.deposite;
+        setMessage1(val1);
+        setMessage4(message4 + val1 * 6.78);
+      } else if (values2.from === 'EUR' && values2.deposite < message2) {
+        const val1 = message2 - values2.deposite;
+        setMessage2(val1);
+        setMessage4(message4 + val1 * 7.29);
+      } else {
+        alert('Insufficient amount in wallet');
+      }
+    } else if (values2.too === 'XAF') {
+      if (values2.from === 'CNY' && values2.deposite < message4) {
+        const val1 = message4 - values2.deposite;
+        setMessage4(val1);
+        setMessage3(message3 + val1 * 90.23);
+      } else if (values2.from === 'USD' && values2.deposite < message1) {
+        const val1 = message1 - values2.deposite;
+        setMessage1(val1);
+        setMessage3(message3 + val1 * 611.64);
+      } else if (values2.from === 'EUR' && values2.deposite < message2) {
+        const val1 = message2 - values2.deposite;
+        setMessage2(val1);
+        setMessage3(message3 + val1 * 658.13);
+      } else {
+        alert('Insufficient amount in wallet');
+      }
     }
   }
 
-  // Getting total default currency after deposit
+ 
 
-  function handleConfirm() {
-    wallet.map((elmt) => {
-      if (elmt.name === deposit) {
-        elmt.amount += input;
-      }
-      return elmt;
-    });
-    setWallet([...wallet]);
 
-    if (rates !== undefined) {
-      let tempSum = 0;
 
-      wallet?.forEach(({ name, amount }) => {
-        tempSum += (amount / rates[name]) * rates[defaultCurrency];
-      });
-      const calculatedSum =
-        (tempSum / rates[defaultCurrency]) * rates[defaultCurrency];
-      setSum(calculatedSum);
-    }
-  }
- if (options.lenght > 0) { 
-  return (
-    <div className="currency">
-      <div
-        className="converter"
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleConvert();
-        }}
-      >
-        <h2>convert</h2>
-        <div className="input">
-          <h3>Amount:</h3>
-          <input
-            type="number"
-            id="amount"
-            step="any"
-            onChange={(e) => setInput(+e.target.value)}
-          />
+
+
+
+
+
+  
+  
+    return (
+      <div className="main">
+        <div className="main__holder__left">
+          <div className="main__wallet">
+            <i className="fa-solid fa-wallet"/>
+            <h3>Wallet</h3>
+          </div>
+          <div className="currency__option">
+
+          </div>
         </div>
-        <div className="select-option">
-          <h4>From:</h4>
-          <ReactDropdown
-            className="dropdown"
-            options={options}
-            value={from.toUpperCase()}
-            placeholder="From"
-            onChange={(e) => {
-              setFrom(e.value);
-            }}
-          />
-          <h4>To:</h4>
-          <ReactDropdown
-            className="dropdown"
-            options={options}
-            value={to.toUpperCase()}
-            placeholder="to"
-            onChange={(e) => {
-              setTo(e.value);
-            }}
-          />
-        </div>
-        <button type="submit">Convert</button>
       </div>
-
-      <div
-        className="converter"
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleConfirm();
-        }}
-      >
-        <h2>Users Acount</h2>
-        <div className="input">
-          <h3> Amount:</h3>
-          <input
-            type="number"
-            step="any"
-            id="amount"
-            onChange={(e) => setInput(+e.target.value)}
-          />
-        </div>
-        <div className="select-options">
-          <h3>Deposit Currency:</h3>
-          <ReactDropdown
-            className="dropdowns"
-            options={options}
-            onChange={(e) => {
-              setDeposit(e.value);
-            }}
-            value={deposit.toUpperCase()}
-          />
-        </div>
-        <button type="submit">Confirm</button>
-      </div>
-      <div className="converter">
-        <h2>User's Wallet</h2>
-        <div className="select">
-          <h3>Default Currency:</h3>
-          <ReactDropdown
-            className="dropdowns"
-            options={options}
-            value={defaultCurrency.toUpperCase()}
-            onChange={(e) => {
-              setDefaultCurrency(e.value);
-            }}
-          />
-        </div>
-        <div className="currencies">
-          {wallet.map((elmt, index) =>(
-            <p key={index}>
-              {elmt.name.toUpperCase()}: {elmt.amount.toFixed(2)}
-            </p>
-          ))}
-        </div>
-        <h4 className="total">Total: {sum.toFixed(2)}</h4>
-      </div>
-    </div>
-  );
-}
-}
+    );
+    
+ }
+export default CurrencyBox

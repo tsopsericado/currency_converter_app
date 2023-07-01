@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, useState } from "react";
 import "./App.css";
-import MyContext from "./context/context";
+import { QuestionProvider } from "./Context";
 import Landing from "./Landing/Landing";
 import CurrencyBox from "./CurrencyBox/CurrencyBox";
 
@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <MyContext.Provider
+        <QuestionProvider
           value={{
             setTotal,
             total,
@@ -36,7 +36,7 @@ function App() {
             <Route index path="/" element={<Landing />} />
             <Route path="/currency" element={<CurrencyBox/>}/>
           </Routes>
-        </MyContext.Provider>
+        </QuestionProvider>
       </BrowserRouter>
     </div>
   );
