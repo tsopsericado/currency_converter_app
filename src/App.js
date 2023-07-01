@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, useState } from "react";
 import "./App.css";
-import CurrencyBox from "./CurrencyBox";
-import UsersBalance from "./UsersBalance";
 import MyContext from "./context/context";
+import Landing from "./Landing/Landing";
+import CurrencyBox from "./CurrencyBox/CurrencyBox";
 
 function App() {
   const [message1, setMessage1] = useState(30);
@@ -15,10 +15,29 @@ function App() {
 
   return (
     <div className="app">
-      <MyContext.Provider value={{setTotal, total, message1, setMessage1, message2, setMessage2, message3, setMessage3, message4, setMessage4, select, setSelect}}>
-        <UsersBalance />
-        <CurrencyBox />
-      </MyContext.Provider>
+      <BrowserRouter>
+        <MyContext.Provider
+          value={{
+            setTotal,
+            total,
+            message1,
+            setMessage1,
+            message2,
+            setMessage2,
+            message3,
+            setMessage3,
+            message4,
+            setMessage4,
+            select,
+            setSelect,
+          }}
+        >
+          <Routes>
+            <Route index path="/" element={<Landing />} />
+            <Route path="/currency" element={<CurrencyBox/>}/>
+          </Routes>
+        </MyContext.Provider>
+      </BrowserRouter>
     </div>
   );
 }
