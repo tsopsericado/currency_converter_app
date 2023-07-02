@@ -1,62 +1,150 @@
-* {
-  margin: 0;
-  padding: 0;
+#currencies {
+  width: 60px;
+  border: none;
+  border-radius: 5px;
+  color: bisque;
+  background-color: #151313e1;
+  border: 1px solid #151313e1;
 }
 
-//converter
-.Currency {
+.currency__options {
+  display: flex;
+  align-items: center;
+}
+
+.main {
+  background-image: url("../images/currency.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__holder__left {
+  background-color: rgba(12, 12, 13, 0.269);
+  padding: 30px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 50vh;
-  width: 90%;
+  align-items: center;
+  gap: 20px;
 }
 
-.converter {
-  border: 2px solid black;
-  padding: 20px;
-  margin: 15px;
+.fa-solid {
+  color: #ffc107;
+  font-size: 40px;
 }
 
-// User Account
-
-.deposit {
-  border: 3px solid black;
-  padding: 20px;
-  margin: 15px;
-  background: blue;
-}
-
-// User Wallet
-
-.wallet {
-  border: 2px solid black;
-  padding: 20px;
-  margin: 15px;
-}
-
-.select-option {
+.main__wallet {
   display: flex;
-  justify-content: space-around;
-  padding: 8px;
+  gap: 10px;
+  align-items: center;
+  color: #ffc107;
 }
 
-.dropdown {
-  background: white;
-  padding: 1px 10px;
-}
-
-h2 {
-  font-size: 24px;
-}
-
-.select-options {
+.main__heading {
   display: flex;
-  justify-content: space-around;
-  padding: 8px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 7px;
 }
 
-.dropdowns {
-  background: white;
-  padding: 1px 10px;
+.input {
+  height: 29px;
+  border-radius: 7px 0 0 7px;
+  width: 200px;
+  background-color: azure;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+  border: none;
+}
+
+.main__holder__left span,
+.main__holder__right span {
+  padding: 6px;
+  border-color: rgb(8, 8, 8/53%);
+}
+
+.total__currency {
+  height: 30px;
+  width: 190px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px 20px;
+  margin: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+}
+
+.logo2 {
+  width: 170px;
+}
+
+.main__holder__right h1 {
+  color: #ffc107;
+}
+
+.main__holder__right input{
+  height: 29px;
+  border: none;
+}
+
+.main__holder__deposit {
+  border-color: #0e040485;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+#currencies2 {
+  height: 29px;
+}
+
+.main__holder__right{
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 30px;
+  background-color: #151313e1;
+  border: 3px solid #151313e1;
+}
+
+.exchanger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.confirm {
+  padding: 5px;
+  border-radius: 8px;
+  background-color: #ffbf00;
+  border: 3px solid #ffbf00;
+  color: floralwhite;
+}
+
+.paragraph {
+  max-width: 300px;
+}
+
+@media screen and (max-width:768px) {
+  .main {
+    flex-direction: column;
+  }
+  
 }
