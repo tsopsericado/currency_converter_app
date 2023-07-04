@@ -60,7 +60,7 @@
   border-radius: 7px 0 0 7px;
   width: 200px;
   background-color: azure;
-  color: #000;
+  color: black;
   display: flex;
   justify-content: center;
   font-size: larger;
@@ -84,6 +84,10 @@
   justify-content: center;
   align-items: center;
   font-size: larger;
+}
+
+option {
+ color: black;
 }
 
 .logo2 {
@@ -110,6 +114,7 @@
 
 #currencies2 {
   height: 29px;
+  color: #000;
 }
 
 .main__holder__right{

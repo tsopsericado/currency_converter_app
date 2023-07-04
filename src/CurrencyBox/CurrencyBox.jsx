@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import "./CurrencyBox.css";
-import { QuestionContext } from "../context/context";
-import logo2 from "..images/logo2.png";
+import './CurrencyBox.css';
+import { QuestionContext } from "../context";
+import logo2 from '../images/logo2.png'
 
 function CurrencyBox() {
   //Using the providers value
@@ -232,7 +232,7 @@ function CurrencyBox() {
               <option value="CNY">CNY</option>
             </select>
             </div>
-            <button type="submit" className="confirm"> Connfirm</button>
+            <button type="submit" className="confirm"> Confirm</button>
           </form>
 
           <form className="main__holder__deposit" onSubmit={doExchange}>

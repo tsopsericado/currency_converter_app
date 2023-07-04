@@ -8,7 +8,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
+  height: 100vh;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -52,7 +52,7 @@
     font-size: larger;
 }
 
-logo {
+.logo {
     width: 200px;
 }
 

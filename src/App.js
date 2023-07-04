@@ -1,6 +1,7 @@
-import { BrowserRouter, Routes, Route, useState } from "react";
+import { useState } from "react";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import "./App.css";
-import { QuestionProvider } from "./Context";
+import { QuestionProvider } from "./context";
 import Landing from "./Landing/Landing";
 import CurrencyBox from "./CurrencyBox/CurrencyBox";
 
