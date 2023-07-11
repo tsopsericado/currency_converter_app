@@ -73,6 +73,10 @@
   border-color: rgb(8, 8, 8/53%);
 }
 
+ .right-input{
+  color: #000;
+ }
+
 .total__currency {
   height: 30px;
   width: 190px;

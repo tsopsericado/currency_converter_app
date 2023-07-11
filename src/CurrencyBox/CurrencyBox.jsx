@@ -122,11 +122,11 @@ function CurrencyBox() {
       } else {
         alert("Insufficient amount in wallet");
       }
-    } else if (values2.too === "CNY") {
+    } else if (values2.too === "EUR ") {
       if (values2.from === "XAF" && values2.deposite < message3) {
         const val1 = message3 - values2.deposite;
         setMessage3(val1);
-        setMessage4(message4 + val1 * 0.01);
+        setMessage2(message4 + val1 * 0.01);
       } else if (values2.from === "USD" && values2.deposite < message1) {
         const val1 = message1 - values2.deposite;
         setMessage1(val1);
@@ -173,13 +173,14 @@ function CurrencyBox() {
         </div>
         <div className="currency__options">
           <div className="input" type="number" name="EUR">
-           {message2}
+            {message2}
           </div>
           <span>EUR</span>
         </div>
 
         <div className="currency__options">
-          <div className="input" type="number" name="XAF">{message3}
+          <div className="input" type="number" name="XAF">
+            {message3}
           </div>
           <span>XAF</span>
         </div>
@@ -191,75 +192,81 @@ function CurrencyBox() {
           <span>CNY</span>
         </div>
 
-        
         <div>
           <h3>Total Currency</h3>
           <div className="total__currency">{total}</div>
         </div>
       </div>
 
-        <div className="main__holder__right">
-          <img src={logo2} alt="logo" className="logo2" />
-          <h1>Currency Converter</h1>
-          <h3 className="paragraph">
-            <i>List of tasks yo can perfom</i>
-          </h3>
-          <i><b>NB:</b>Confirm after any Change made</i>
-          <form className="main__holder__deposit" onSubmit={handleSubmit}>
-            <div className="main__heading">
-              <p>
-                <b>Default Currency:</b>
-              </p>
-              <select name="defaultCurrency" id="currencies">
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="XAF">XAF</option>
-                <option value="CNY">CNY</option>
-              </select>
-            </div>
+      <div className="main__holder__right">
+        <img src={logo2} alt="logo" className="logo2" />
+        <h1>Currency Converter</h1>
+        <h3 className="paragraph">
+          <i>List of tasks you can perfom</i>
+        </h3>
+        <i>
+          <b>NB:</b>Confirm after any Change made
+        </i>
+        <form className="main__holder__deposit" onSubmit={handleSubmit}>
+          <div className="main__heading">
+            <p>
+              <b>Default Currency:</b>
+            </p>
+            <select name="defaultCurrency" id="currencies">
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="XAF">XAF</option>
+              <option value="CNY">CNY</option>
+            </select>
+          </div>
 
-            <h3 className="right__headings">Deposite</h3>
-            <div>
-              <span>Amount:</span>
-              <input type="number" name="Amount"/>
-            </div>
-            <div>
-              <span>Currency for Deposite:</span>
+          <h3 className="right__headings">Deposite</h3>
+          <div>
+            <span>Amount:</span>
+            <input type="number" name="Amount" className="right-input" />
+          </div>
+          <div>
+            <span>Currency for Deposite:</span>
             <select name="currency" id="currencices2">
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>
               <option value="XAF">XAF</option>
               <option value="CNY">CNY</option>
             </select>
-            </div>
-            <button type="submit" className="confirm"> Confirm</button>
-          </form>
+          </div>
+          <button type="submit" className="confirm">
+            {" "}
+            Confirm
+          </button>
+        </form>
 
-          <form className="main__holder__deposit" onSubmit={doExchange}>
-            <h3 className="right__headings">Exchange Currencies</h3>
-            <div>
-              <span>Amount:</span>
-              <input type="number" name="deposite" />
-            </div>
-            <div className="exchanger">
-              <select name="from" id="currencies2">
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="XAF">XAF</option>
-                <option value="CNY">CNY</option>
-              </select>
-              <i className="fa-sharpfa-solid fa-arrow-right"/>
-              <select name="to" id="currencies2">
-                <option value="XAF">XAF</option>
-                <option value="CNY">CNY</option>
-                <option value="EUR">EUR</option>
-                <option value="USD">USD</option>
-              </select>
-            </div>
-            <button type="submit" className="confirm">Confirm</button>
-          </form>
-        </div>
+        <form className="main__holder__deposit" onSubmit={doExchange}>
+          <h3 className="right__headings">Exchange Currencies</h3>
+          <div>
+            <span>Amount:</span>
+            <input type="number" name="deposite" className="right-input"/>
+          </div>
+          <div className="exchanger">
+            <select name="from" id="currencies2">
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="XAF">XAF</option>
+              <option value="CNY">CNY</option>
+            </select>
+            <i className="fa-sharpfa-solid fa-arrow-right" />
+            <select name="to" id="currencies2">
+              <option value="XAF">XAF</option>
+              <option value="CNY">CNY</option>
+              <option value="EUR">EUR</option>
+              <option value="USD">USD</option>
+            </select>
+          </div>
+          <button type="submit" className="confirm">
+            Confirm
+          </button>
+        </form>
       </div>
+    </div>
   );
 }
 export default CurrencyBox;

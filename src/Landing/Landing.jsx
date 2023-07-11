@@ -1,6 +1,5 @@
 import React from 'react'
 import "./Landing.css";
-import Navbar from '../Navbar/Navbar';
 
 
 import { Link } from 'react-router-dom';
@@ -11,7 +10,6 @@ import logo1 from '../images/logo1.png';
 export default function Landing() {
   return (
     <div className="container">
-      <Navbar />
       <div className="home__main">
         <h1>
           <i>Welcome to your currency Exchange App </i>
