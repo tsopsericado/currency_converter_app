@@ -7,9 +7,18 @@
   border: 1px solid #151313e1;
 }
 
+.currency__option {
+  display: flex;
+  align-items: center;
+}
+
 .currency__options {
   display: flex;
   align-items: center;
+}
+
+.total {
+  text-align: center;
 }
 
 .main {

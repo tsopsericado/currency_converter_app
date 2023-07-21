@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import './CurrencyBox.css';
+import "./CurrencyBox.css";
 import { QuestionContext } from "../context";
-import logo2 from '../images/logo2.png'
+import logo2 from "../images/logo2.png";
 
 function CurrencyBox() {
   //Using the providers value
@@ -122,11 +122,11 @@ function CurrencyBox() {
       } else {
         alert("Insufficient amount in wallet");
       }
-    } else if (values2.too === "EUR ") {
+    } else if (values2.too === "CNY") {
       if (values2.from === "XAF" && values2.deposite < message3) {
         const val1 = message3 - values2.deposite;
         setMessage3(val1);
-        setMessage2(message4 + val1 * 0.01);
+        setMessage4(message4 + val1 * 0.01);
       } else if (values2.from === "USD" && values2.deposite < message1) {
         const val1 = message1 - values2.deposite;
         setMessage1(val1);
@@ -193,7 +193,7 @@ function CurrencyBox() {
         </div>
 
         <div>
-          <h3>Total Currency</h3>
+          <h3 className="total">Total Currency</h3>
           <div className="total__currency">{total}</div>
         </div>
       </div>
@@ -227,7 +227,7 @@ function CurrencyBox() {
           </div>
           <div>
             <span>Currency for Deposite:</span>
-            <select name="currency" id="currencices2">
+            <select className="currency" id="currencices2">
               <option value="USD">USD</option>
               <option value="EUR">EUR</option>
               <option value="XAF">XAF</option>
@@ -244,7 +244,7 @@ function CurrencyBox() {
           <h3 className="right__headings">Exchange Currencies</h3>
           <div>
             <span>Amount:</span>
-            <input type="number" name="deposite" className="right-input"/>
+            <input type="number" name="deposite" className="right-input" />
           </div>
           <div className="exchanger">
             <select name="from" id="currencies2">
