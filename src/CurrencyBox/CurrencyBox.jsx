@@ -235,7 +235,6 @@ function CurrencyBox() {
             </select>
           </div>
           <button type="submit" className="confirm">
-            {" "}
             Confirm
           </button>
         </form>
@@ -254,7 +253,7 @@ function CurrencyBox() {
               <option value="CNY">CNY</option>
             </select>
             <i className="fa-sharpfa-solid fa-arrow-right" />
-            <select name="to" id="currencies2">
+            <select name="too" id="currencies2">
               <option value="XAF">XAF</option>
               <option value="CNY">CNY</option>
               <option value="EUR">EUR</option>
