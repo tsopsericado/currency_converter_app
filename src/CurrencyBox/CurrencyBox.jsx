@@ -20,6 +20,8 @@ function CurrencyBox() {
   } = useContext(QuestionContext);
 
   const handleSubmit = (event) => {
+    event.preventDefault();
+
     let ans1 = 0;
     let ans2 = 0;
     let ans3 = 0;
@@ -41,6 +43,7 @@ function CurrencyBox() {
       ans4 = message4 + +values.Amount;
       setMessage4(ans4);
     }
+
     if (values.defaultCurrency === "USD") {
       const operation1 = (
         message2 * 0.93 +
@@ -164,7 +167,7 @@ function CurrencyBox() {
           <i className="fa-solid fa-wallet" />
           <h3>Wallet</h3>
         </div>
-        <div className="currency__option">
+        <div className="currency__options">
           <div className="input" type="number" name="USD">
             {message1}
           </div>
