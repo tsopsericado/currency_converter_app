@@ -1,6 +1,5 @@
-import { useContext } from "react";
 import "./CurrencyBox.css";
-import { QuestionContext } from "../context";
+import { useCurrencyContext } from "../context";
 import logo2 from "../images/logo2.png";
 
 function CurrencyBox() {
@@ -17,7 +16,7 @@ function CurrencyBox() {
     setMessage4,
     total,
     setTotal,
-  } = useContext(QuestionContext);
+  } = useCurrencyContext()
 
   const handleSubmit = (event) => {
     event.preventDefault();

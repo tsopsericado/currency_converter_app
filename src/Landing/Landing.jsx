@@ -1,13 +1,13 @@
 import React from 'react'
 import "./Landing.css";
 
-
 import { Link } from 'react-router-dom';
 
 import logo1 from '../images/logo1.png';
 
 
 export default function Landing() {
+
   return (
     <div className="container">
       <div className="home__main">
