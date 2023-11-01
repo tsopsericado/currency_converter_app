@@ -134,7 +134,7 @@ function CurrencyBox() {
         const val1 = message1 - values2.deposite;
         setMessage1(val1);
         setMessage4(message4 + val1 * 6.78);
-      } else if (values2.from === "EUR" && values2.deposite < message2) {
+      } else if (values2.from === "EUR" && values2.deposite < message2) { 
         const val1 = message2 - values2.deposite;
         setMessage2(val1);
         setMessage4(message4 + val1 * 7.29);
