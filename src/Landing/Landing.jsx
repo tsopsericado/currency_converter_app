@@ -24,7 +24,7 @@ export default function Landing() {
             type="button"
             className="bg-slate-600 font-bold text-[25px] text-white hover:text-black hover:bg-slate-300"
           >
-            <Link to="/currency" className="home__link">
+            <Link to="/register" className="home__link">
               Get Started
             </Link>
           </button>
@@ -34,8 +34,7 @@ export default function Landing() {
           <img src={Hero} alt="landing_page_image" className="w-[400px]" />
         </div>
       </div>
-      <div className="bg-black w-full h-[50px] mt-[200px]">
-      </div>
+      <div className="bg-black w-full h-[50px] mt-[200px]"></div>
     </div>
   );
 }

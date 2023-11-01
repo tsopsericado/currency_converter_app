@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleclick = () => {
+    navigate("/login");
+  };
+
   return (
     <div>
       <div className="flex justify-around h-[60px] shadow-2xl items-center px-8">
@@ -37,7 +44,12 @@ const Navbar = () => {
             </a>
           </ul>
           <div className="flex flex-row gap-4">
-            <button className="hover:bg-black hover:text-white">Login</button>
+            <button
+              className="hover:bg-black hover:text-white"
+              onClick={handleclick}
+            >
+              Login
+            </button>
             <button className="hover:bg-black hover:text-white">
               Free Demo
             </button>
