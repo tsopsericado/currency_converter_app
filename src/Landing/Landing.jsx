@@ -34,8 +34,7 @@ export default function Landing() {
           <img src={Hero} alt="landing_page_image" className="w-[400px]" />
         </div>
       </div>
-      <div className="bg-black w-full h-[50px] mt-[100px]">
-
+      <div className="bg-black w-full h-[50px] mt-[200px]">
       </div>
     </div>
   );
