@@ -1,70 +1,41 @@
 import React from "react";
 import "./Landing.css";
+import Hero from "../images/hero.png";
 
 import { Link } from "react-router-dom";
+import Navbar from "../atoms/Navbar";
 
 export default function Landing() {
   return (
     <div className="bg-white">
-      <div className="flex justify-around h-[60px] shadow-xl items-center px-8">
-        <div>
-          <h1 className=" text-[25px] font-bold">LOGO</h1>
-        </div>
-        <div className="flex justify-between gap-10  ">
-          <ul className="text-[17px] font-bold flex flex-row gap-8">
-            <a
-              href="/home"
-              className="hover:underline hover:text-black hover:text-bold"
-            >
-              Home
-            </a>
-            <a
-              href="/about"
-              className="hover:underline hover:text-black hover:text-bold"
-            >
-              About us
-            </a>
-            <a
-              href="/our program"
-              className="hover:underline hover:text-black hover:text-bold"
-            >
-              Our Program
-            </a>
-            <a
-              href="/contact"
-              className="hover:underline hover:text-black hover:text-bold"
-            >
-              contact us
-            </a>
-          </ul>
-          <div className="flex flex-row gap-4">
-            <button className="hover:bg-black hover:text-white">Login</button>
-            <button className="hover:bg-black hover:text-white">
-              Free Demo
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="">
-        <div>
-          <h1>
+      <Navbar />
+      <div className="flex flex-row items-center justify-around pt-[100px]">
+        <div className="flex flex-col gap-5 pt-10">
+          <h1 className="font-extrabold text-[70px] text-gray-600 leading-[1]">
             CURRENCY <br /> EXCHANGE
           </h1>
-          <p>
+          <p className="text-[20px] text-gray-800">
             Welcome to your currency Exchange App, <br />
-            Trust get
+            You may be entitle to a compensation of <br />
+            up to 600$ by the company.
           </p>
-          <h2> dwdws</h2>
+          <h2 className="text-[17px]">You are at the right place</h2>
+          <button
+            type="button"
+            className="bg-slate-600 font-bold text-[25px] text-white hover:text-black hover:bg-slate-300"
+          >
+            <Link to="/currency" className="home__link">
+              Get Started
+            </Link>
+          </button>
         </div>
-        <button type="button">
-          <Link to="/currency" className="home__link">
-            Get Started
-          </Link>
-        </button>
+
+        <div>
+          <img src={Hero} alt="landing_page_image" className="w-[400px]" />
+        </div>
       </div>
-      <div>
-        <img src="" alt="landing_pag_image " />
+      <div className="bg-black w-full h-[50px] mt-[100px]">
+
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import "./CurrencyBox.css";
 import { useCurrencyContext } from "../context";
 import logo2 from "../images/logo2.png";
+import Navbar from "../atoms/Navbar";
 
 function CurrencyBox() {
   //Using the providers value
@@ -161,6 +162,8 @@ function CurrencyBox() {
 
   return (
     <div className="main">
+      <Navbar/>
+      <div className="flex bg-gray-200 items-center justify-center">
       <div className="main__holder__left">
         <div className="main__wallet">
           <i className="fa-solid fa-wallet" />
@@ -168,7 +171,7 @@ function CurrencyBox() {
         </div>
         <div className="currency__options">
           <div className="input" type="number" name="USD">
-            {message1}
+            {message1}  
           </div>
 
           <span>USD</span>
@@ -195,7 +198,7 @@ function CurrencyBox() {
         </div>
 
         <div>
-          <h3 className="total">Total Currency</h3>
+          <h3 className="total font-bold">Total Currency</h3>
           <div className="total__currency">{total}</div>
         </div>
       </div>
@@ -266,6 +269,7 @@ function CurrencyBox() {
             Confirm
           </button>
         </form>
+      </div>
       </div>
     </div>
   );
