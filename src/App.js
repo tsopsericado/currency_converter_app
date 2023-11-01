@@ -4,7 +4,6 @@ import Landing from "./Landing/Landing";
 import CurrencyBox from "./CurrencyBox/CurrencyBox";
 
 function App() {
-
   return (
     <div className="app">
       <BrowserRouter>
