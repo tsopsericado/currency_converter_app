@@ -1,0 +1,158 @@
+#currencies {
+  width: 60px;
+  border: none;
+  border-radius: 5px;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #151313e1;
+}
+
+.currency__option {
+  display: flex;
+  align-items: center;
+}
+
+.currency__options {
+  display: flex;
+  align-items: center;
+}
+
+.total {
+  text-align: center;
+}
+
+.main__holder__left {
+  background-color: rgba(12, 12, 13, 0.269);
+  padding: 30px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.fa-solid {
+  color: #ffc107;
+  font-size: 40px;
+}
+
+.main__wallet {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.main__wallet h3 {
+  color: #ffc107;
+}
+
+.main__heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 7px;
+}
+
+.input {
+  height: 29px;
+  border-radius: 7px 0 0 7px;
+  width: 200px;
+  background-color: azure;
+  color: black;
+  display: flex;
+  justify-content: center;
+  font-size: larger;
+  border: none;
+}
+
+.main__holder__left span,
+.main__holder__right span {
+  padding: 6px;
+  border-color: rgb(8, 8, 8/53%);
+}
+
+.right-input {
+  color: #000;
+}
+
+.total__currency {
+  height: 30px;
+  width: 190px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 5px 20px;
+  margin: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+}
+
+option {
+  color: black;
+}
+
+.logo2 {
+  width: 170px;
+}
+
+.main__holder__right h1 {
+  color: #ffc107;
+}
+
+.main__holder__right input {
+  height: 29px;
+  border: none;
+}
+
+.main__holder__deposit {
+  border-color: #0e040485;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+#currencies2 {
+  height: 29px;
+  color: #000;
+}
+
+.main__holder__right {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 30px;
+  /* background-color: #151313e1; */
+  border: 1px solid #151313e1;
+}
+
+.exchanger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.confirm {
+  padding: 5px;
+  border-radius: 8px;
+  background-color: #ffbf00;
+  border: 3px solid #ffbf00;
+  color: floralwhite;
+}
+
+.paragraph {
+  max-width: 300px;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+}
