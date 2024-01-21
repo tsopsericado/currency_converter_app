@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="flex justify-around gap-4 h-[60px] shadow-2xl items-center px-8">
+      <div className="flex justify-around h-[60px] shadow-2xl items-center px-8">
         <div>
           <a href="/" className=" text-[25px] font-bold">
             LOGO
