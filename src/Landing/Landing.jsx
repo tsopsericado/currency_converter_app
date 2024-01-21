@@ -35,7 +35,7 @@ export default function Landing() {
               </div>
               <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
                 <a
-                  href="/course"
+                  href="/currency"
                   class="flex items-center justify-center w-full px-8 py-3 text-base font-medium leading-6 text-blue-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md hover:text-blue-600 focus:outline-none focus:shadow-outline-blue md:py-4 md:text-lg md:px-10"
                 >
                   Contribute
@@ -53,7 +53,7 @@ export default function Landing() {
         </div>
       </div>
 
-      <div className="bg-black w-full h-[50px] mt-[200px]"></div>
+      <div className="bg-black w-full"></div>
     </div>
   );
 }
