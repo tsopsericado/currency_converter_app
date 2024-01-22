@@ -33,7 +33,10 @@ const Register = () => {
     <div>
       <Navbar />
       <div className="flex justify-center items-center h-screen ">
-        <form onSubmit={handleSubmit} className="w-full max-w-sm ">
+        <form
+          onSubmit={handleSubmit}
+          className="w-full max-w-sm sm:w-[90%] sm:m-auto m-4"
+        >
           <div className="mb-4">
             <label
               htmlFor="username"
